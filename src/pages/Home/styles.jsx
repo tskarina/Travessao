@@ -18,8 +18,8 @@ const HeaderElements = styled.div`
   display: flex;
   align-items: center;
   justify-content: baseline;
-  gap: 25px;
-  margin-left: 71vh;
+  gap: 18px;
+  margin-left: 73vh;
 
   a {
     font-size: 14px;
@@ -144,32 +144,25 @@ const Card = styled.div`
     letter-spacing: 0.8px;
   }
 
-  /* Efeito de gradiente */
   &::before {
     content: "";
     position: absolute;
     top: 0;
-    left: 0; /* Começa dentro do card, na esquerda */
+    left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(
-      to right,
-      transparent,
-      rgba(109, 109, 109, 0.425)
-    ); /* Gradiente da esquerda para a direita */
-    transition: left 1s ease; /* Transição suave do movimento */
-    z-index: 1; /* Garante que o gradiente fique abaixo do conteúdo do card */
-    pointer-events: none; /* Permite que o mouse passe através do gradiente */
-    opacity: 0; /* Inicialmente invisível */
+    background: linear-gradient(to right, transparent, rgba(109, 109, 109, 0.425));
+    transition: left 1s ease;
+    z-index: 1;
+    pointer-events: none;
+    opacity: 0;
   }
 
-  /* Definindo o comportamento do gradiente ao passar o mouse */
   &:hover::before {
-    left: 100%; /* Move o gradiente para a direita */
-    opacity: 1; /* Torna o gradiente visível */
+    left: 100%;
+    opacity: 1;
   }
 
-  /* Definindo efeito ao passar o mouse sobre o card */
   &:hover {
     transform: scale(1.05);
     border: 1px solid ${(props) => props.theme.colors.color7}; /* Altera a cor da borda ao passar o mouse */
@@ -413,7 +406,8 @@ const Footer = styled.div`
 const FooterContainer = styled.div`
   display: flex;
   flex-wrap: nowrap;
-  margin-top: 50px;
+  justify-content: center; /* Alinha o conteúdo no centro horizontal */
+  margin-top: 30px;
   margin-left: 30vh;
   margin-right: 23vh;
   gap: 120px;

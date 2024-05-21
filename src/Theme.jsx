@@ -10,7 +10,9 @@ const theme = {
     color8: "#ffb039",
     color9: "#00000021",
     color10: "#6f00ca",
-    color11: "#14012b",
+    color11: "#0c031f",
+    color12: "#190331",
+    color13: "#30303060",
   },
 
   fonts: {

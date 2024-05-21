@@ -33,6 +33,13 @@ import yt from "../../images/youtube.png";
 
 import { Link } from "react-router-dom";
 
+const socialMedia = [
+  { name: "Facebook", image: fb, link: "https://facebook.com" },
+  { name: "Instagram", image: ig, link: "https://instagram.com" },
+  { name: "Twitter", image: tt, link: "https://twitter.com" },
+  { name: "YouTube", image: yt, link: "https://youtube.com" },
+];
+
 const {
   GlobalContainer,
   Header,
@@ -76,8 +83,9 @@ const HomePage = () => {
         <Header>
           <LogoImage src={logoImage} alt="Logo" />
           <HeaderElements>
-            <Link to="/escola">A escola</Link>
-            <Link to="/turmas">Turmas e horários</Link>
+            <Link to="/">Home</Link>
+            <Link to="/aescola">A escola</Link>
+            <Link to="/turmasehorarios">Turmas e horários</Link>
             <Link to="/contato">Contato</Link>
             <Button>Matricule-se</Button>
           </HeaderElements>
@@ -461,25 +469,15 @@ const HomePage = () => {
           <div>
             <h1>Redes Sociais</h1>
             <SocialMedia>
-              <div>
-                <img src={fb} alt="Facebook" />
-              </div>
-              <div>
-                <img src={ig} alt="Instagram" />
-              </div>
-              <div>
-                <img src={tt} alt="Twitter" />
-              </div>
-              <div>
-                <img src={yt} alt="Youtube" />
-              </div>
+              {socialMedia.map((media) => (
+                <div key={media.name}>
+                  <a href={media.link} target="_blank" rel="noopener noreferrer">
+                    <img src={media.image} alt={media.name} />
+                  </a>
+                </div>
+              ))}
             </SocialMedia>
           </div>
-
-          <FooterContent>
-            <h2>Saiba das novidades</h2>
-            <input type="text" />
-          </FooterContent>
         </FooterContainer>
       </Footer>
     </section>
