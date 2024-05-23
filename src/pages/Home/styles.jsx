@@ -42,7 +42,6 @@ const HeaderElements = styled.div`
 
 const Button = styled.button`
   background-color: ${(props) => props.theme.colors.color4};
-  margin-top: 40px;
   border: 2px solid transparent; /* Definir uma borda transparente */
   border-radius: 8px;
   color: ${(props) => props.theme.colors.color3};
