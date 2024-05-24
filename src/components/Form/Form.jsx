@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import styles from "./styles";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 const {
   FormContainer,
   FormData,
@@ -9,11 +11,17 @@ const {
   FinanceContainer,
   PaymentOption,
   FormInput,
+  ScheduleContainer,
+  DatePickerWrapper,
+  DetailsContainer,
+  ConfirmButton,
   SubmitButton,
 } = styles;
 
 const Form = () => {
   const [paymentMethod, setPaymentMethod] = useState("");
+  const [selectedDate, setSelectedDate] = useState(null);
+  const [termsAccepted, setTermsAccepted] = useState(false);
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -22,6 +30,16 @@ const Form = () => {
 
   const handlePaymentChange = (e) => {
     setPaymentMethod(e.target.value);
+  };
+
+  const isWeekday = (date) => {
+    const day = date.getDay();
+    return day !== 0 && day !== 6;
+  };
+
+  const handleConfirm = () => {
+    // Lógica para confirmar o agendamento
+    console.log("Agendamento confirmado para:", selectedDate);
   };
 
   return (
@@ -155,27 +173,6 @@ const Form = () => {
           </div>
         </PaymentOption>
 
-        {paymentMethod === "creditCard" && (
-          <>
-            <FormField>
-              <p>Número do Cartão</p>
-              <FormInput type="text" placeholder="Número do Cartão" />
-            </FormField>
-            <FormField>
-              <p>Nome no Cartão</p>
-              <FormInput type="text" placeholder="Nome no Cartão" />
-            </FormField>
-            <FormField>
-              <p>Data de Validade</p>
-              <FormInput type="text" placeholder="MM/AA" />
-            </FormField>
-            <FormField>
-              <p>Código CVV</p>
-              <FormInput type="text" placeholder="CVV" />
-            </FormField>
-          </>
-        )}
-
         <PaymentOption>
           <input type="radio" name="paymentMethod" value="boleto" onChange={handlePaymentChange} />
           <div>
@@ -191,7 +188,42 @@ const Form = () => {
         )}
       </FinanceContainer>
 
-      <SubmitButton type="submit">Enviar</SubmitButton>
+      <ScheduleContainer>
+        <div>
+          <h1>Agendamento para Assinatura de Documentos</h1>
+          <FormField>
+            <DatePickerWrapper>
+              <p>
+                Por favor, selecione uma data disponível para agendar a assinatura de documentos. Lembre-se de trazer
+                consigo todos os documentos necessários para o processo de matrícula.
+              </p>
+              <DatePicker
+                selected={selectedDate}
+                onChange={(date) => setSelectedDate(date)}
+                filterDate={isWeekday}
+                inline
+              />
+            </DatePickerWrapper>
+          </FormField>
+        </div>
+      </ScheduleContainer>
+
+      <p>
+        Este formulário é reservado para a efetivação da pré-matrícula do aluno. A partir dos dados preenchidos nele,
+        será confeccionado o contrato, o boleto e o requerimento. Não esqueça de preencher o agendamento para a
+        assinatura da documentação e pagamento da primeira parcela do ano letivo de 2021. Lembrando que os primeiros a
+        comparecerem terão prioridade na escolha de turno (manhã ou tarde).
+      </p>
+
+      <FormField>
+        <label>
+          <input type="checkbox" checked={termsAccepted} onChange={() => setTermsAccepted(!termsAccepted)} />
+          Eu confirmo que todas as informações fornecidas são corretas e aceito os termos de compromisso.
+        </label>
+      </FormField>
+      <SubmitButton type="submit" disabled={!termsAccepted}>
+        Enviar
+      </SubmitButton>
     </FormContainer>
   );
 };
