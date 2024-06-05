@@ -44,7 +44,7 @@ const Form = () => {
 
     const errors = {};
 
-    setFormErrors(errors); // Atualiza os erro
+    setFormErrors(errors);
 
     if (Object.keys(errors).length > 0) {
       return;
@@ -53,19 +53,16 @@ const Form = () => {
     console.log("Formulário enviado com sucesso");
   };
 
-  // Lógica para manipular a mudança de tipo de matrícula
   const handleMatriculaChange = (e) => {
     setSelectedMatricula(e.target.value);
     setFormErrors((prevErrors) => ({ ...prevErrors, matricula: "" }));
   };
 
-  // Lógica para manipular a mudança de método de pagamento
   const handlePaymentChange = (e) => {
     setPaymentMethod(e.target.value);
     setFormErrors((prevErrors) => ({ ...prevErrors, paymentMethod: "" }));
   };
 
-  // Lógica para manipular a mudança de data
   const handleDateChange = (date) => {
     setSelectedDate(date);
     setFormErrors((prevErrors) => ({ ...prevErrors, date: "" }));
@@ -75,13 +72,11 @@ const Form = () => {
     setSelectedTime(null);
   };
 
-  // Lógica para manipular a seleção de horário
   const handleTimeClick = (time) => {
     setSelectedTime(time);
     setFormErrors((prevErrors) => ({ ...prevErrors, time: "" }));
   };
 
-  // Verifica se o formulário é válido
   const isFormValid = () => {
     return (
       selectedMatricula &&
