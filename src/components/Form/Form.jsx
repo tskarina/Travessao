@@ -147,6 +147,22 @@ const Form = () => {
 
           <FormField>
             <p>
+              Data de Nascimento <span>*</span>
+            </p>
+            <FormInput type="date" name="dataNascimento" />
+            {formErrors.dataNascimento && <p style={{ color: "red" }}>{formErrors.dataNascimento}</p>}
+          </FormField>
+
+          <FormField>
+            <p>
+              RG <span>*</span>
+            </p>
+            <FormInput type="text" name="rg" />
+            {formErrors.rg && <p style={{ color: "red" }}>{formErrors.rg}</p>}
+          </FormField>
+
+          <FormField>
+            <p>
               E-mail <span>*</span>
             </p>
             <FormInput type="text" name="email" />
@@ -184,6 +200,14 @@ const Form = () => {
 
         <FormData>
           <h1>Dados do Responsável (Contratante)</h1>
+
+          <FormField>
+            <p>
+              Nome completo <span>*</span>
+            </p>
+            <FormInput type="text" name="nome" />
+            {submitted && !selectedMatricula && <p style={{ color: "red" }}>Por favor, insira o nome completo.</p>}
+          </FormField>
 
           <FormField>
             <p>Estado civil *</p>
