@@ -1,16 +1,20 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styles from "./styles";
 import Form from "../../components/Form/Form";
+import { useNavigate } from "react-router-dom";
 
 const { GlobalContainer } = styles;
 
 const FormularioPage = () => {
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [navigate]);
+
   return (
     <GlobalContainer>
-      <div>
-        <h1>Página de Formulário</h1>
-        <Form />
-      </div>
+      <Form />
     </GlobalContainer>
   );
 };

@@ -178,7 +178,9 @@ const HomePage = () => {
               Iniciante
             </Title>
             <Text customMarginBottom="15px">Treino ideal para quem nunca jogou</Text>
-            <ButtonContent>Saiba Mais</ButtonContent>
+            <Link to="/turmas">
+              <ButtonContent>Saiba Mais</ButtonContent>
+            </Link>
           </Content>
 
           <Content customBackground="none" customWidth="auto" customBorder="none">
@@ -187,7 +189,9 @@ const HomePage = () => {
               Intermediário
             </Title>
             <Text customMarginBottom="15px"> Se você já sabe jogar e deseja melhorar</Text>
-            <ButtonContent>Saiba Mais</ButtonContent>
+            <Link to="/turmas">
+              <ButtonContent>Saiba Mais</ButtonContent>
+            </Link>
           </Content>
 
           <Content customBackground="none" customWidth="auto" customBorder="none">
@@ -196,7 +200,9 @@ const HomePage = () => {
               Goleiros
             </Title>
             <Text customMarginBottom="15px">Academia de goleiros para todos os níveis</Text>
-            <ButtonContent>Saiba Mais</ButtonContent>
+            <Link to="/turmas">
+              <ButtonContent>Saiba Mais</ButtonContent>
+            </Link>
           </Content>
         </Container>
 
@@ -307,7 +313,9 @@ const HomePage = () => {
                 <p> Jogos entre as turmas</p>
               </li>
             </ul>
-            <ButtonValues>Matricule-se</ButtonValues>
+            <Link to="/matricula">
+              <ButtonValues>Matricule-se</ButtonValues>
+            </Link>
           </ContentValues>
 
           <ContentValues>
@@ -350,7 +358,9 @@ const HomePage = () => {
                 <p>Jogo livre aos sábados </p>
               </li>
             </ul>
-            <ButtonValues>Matricule-se</ButtonValues>
+            <Link to="/matricula">
+              <ButtonValues>Matricule-se</ButtonValues>
+            </Link>
           </ContentValues>
 
           <ContentValues>
@@ -397,7 +407,9 @@ const HomePage = () => {
                 <p>Jogo livre aos sábados </p>
               </li>
             </ul>
-            <ButtonValues>Matricule-se</ButtonValues>
+            <Link to="/matricula">
+              <ButtonValues>Matricule-se</ButtonValues>
+            </Link>
           </ContentValues>
         </Container>
       </GlobalContainer>

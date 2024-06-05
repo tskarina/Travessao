@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState, useRef } from "react";
 import styles from "./styles";
 import me from "../../images/karina.png";
 import escola from "../../images/aescola.jpg";
@@ -17,9 +17,8 @@ import img6 from "../../images/imagem6.jpg";
 import img7 from "../../images/imagem7.jpg";
 import img8 from "../../images/imagem8.jpg";
 
-import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { useState, useEffect, useRef } from "react";
+import LazyLoad from "react-lazyload";
 
 const professores = [
   { name: "Angela Roma", image: angela },
@@ -50,10 +49,30 @@ const EscolaPage = () => {
   const secondRowProfessores = professores.slice(3, 6);
   const carousel = useRef();
   const [width, setWidth] = useState(0);
+  const [preloadImages, setPreloadImages] = useState(false);
 
   useEffect(() => {
-    console.log(carousel.current?.scrollWidth, carousel.current?.offsetWidth);
     setWidth(carousel.current?.scrollWidth - carousel.current?.offsetWidth);
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting) {
+          setPreloadImages(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.1 }
+    );
+
+    if (carousel.current) {
+      observer.observe(carousel.current);
+    }
+
+    return () => {
+      if (carousel.current) {
+        observer.unobserve(carousel.current);
+      }
+    };
   }, []);
 
   return (
@@ -80,7 +99,9 @@ const EscolaPage = () => {
               estão por vir. Junte-se a nós nesta emocionante jornada e faça parte da história da nossa escola de
               futebol!
             </p>
-            <img src={escola} alt="imagem" />
+            <LazyLoad height={200} offset={100}>
+              <img src={escola} alt="imagem" />
+            </LazyLoad>
           </div>
         </Container>
 
@@ -114,7 +135,9 @@ const EscolaPage = () => {
               futuro reserva e ansiosa em continuar minha jornada de crescimento no universo da tecnologia.
             </p>
 
-            <img src={me} alt="image" />
+            <LazyLoad height={200} offset={100}>
+              <img src={me} alt="image" />
+            </LazyLoad>
           </div>
         </ContainerFundacao>
 
@@ -125,7 +148,9 @@ const EscolaPage = () => {
           <Row>
             {firstRowProfessores.map((professor) => (
               <ProfessorContainer key={professor.name}>
-                <img src={professor.image} alt={professor.name} />
+                <LazyLoad height={200} offset={100}>
+                  <img src={professor.image} alt={professor.name} />
+                </LazyLoad>
                 <h2>{professor.name}</h2>
               </ProfessorContainer>
             ))}
@@ -133,7 +158,9 @@ const EscolaPage = () => {
           <Row>
             {secondRowProfessores.map((professor) => (
               <ProfessorContainer key={professor.name}>
-                <img src={professor.image} alt={professor.name} />
+                <LazyLoad height={200} offset={100}>
+                  <img src={professor.image} alt={professor.name} />
+                </LazyLoad>
                 <h2>{professor.name}</h2>
               </ProfessorContainer>
             ))}
@@ -147,7 +174,7 @@ const EscolaPage = () => {
             <Inner as={motion.div} drag="x" dragConstraints={{ right: 0, left: -width }}>
               {images.map((image) => (
                 <motion.div className="item" key={image}>
-                  <img src={image} alt="Texto Alt" />
+                  <img src={image} alt="Texto Alt" loading={preloadImages ? "eager" : "lazy"} />
                 </motion.div>
               ))}
             </Inner>

@@ -133,9 +133,6 @@ const Card = styled.div`
   overflow: hidden; /* Esconde o overflow causado pelo gradiente */
   transition: transform 0.3s ease; /* Adicionando transição suave ao transform */
 
-  h3 {
-  }
-
   p {
     color: ${(props) => props.theme.colors.color1};
     font-size: 14px;

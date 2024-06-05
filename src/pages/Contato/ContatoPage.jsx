@@ -55,7 +55,9 @@ const ContatoPage = () => {
               <h3>Mensagem</h3>
               <textarea label="Mensagem" type="text" placeholder="Digite sua mensagem" />
             </InputContent>
-            <ButtonContato>Enviar</ButtonContato>
+            <Link to="/mensagemenviada">
+              <ButtonContato>Enviar</ButtonContato>
+            </Link>
           </InputContainer>
         </Container>
       </GlobalContainer>

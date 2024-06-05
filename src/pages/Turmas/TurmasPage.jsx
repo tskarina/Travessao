@@ -1,128 +1,89 @@
 import React from "react";
 import styles from "./styles";
+import iniciante from "../../images/ini.jpg";
+import intermediario from "../../images/int.jpg";
+import goleiro from "../../images/gol.jpg";
 
-const { GlobalContainer, ContainerText, Container, Content, ButtonTable } = styles;
+import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+
+const { GlobalContainer, Container, Title } = styles;
 
 const TurmasPage = () => {
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [navigate]);
+
   return (
     <section>
       <GlobalContainer>
-        <ContainerText>
-          <h1>Turmas e Horários</h1>
-          <p>
-            Abaixo temos a tabela de dias e horários disponíveis para cada turma. Lembrando que aos sábados todas as
-            turmas possuem um jogo livre.
-          </p>
-          <h2>Horários e Dias disponíveis para cada turma </h2>
-        </ContainerText>
+        <Container>
+          <Title>Treinamento de Iniciante</Title>
+          <div>
+            <p>
+              Desde os primeiros passos até os momentos de glória nos gramados, estamos ao lado de nossos alunos, Desde
+              os primeiros passos até os momentos de glória nos gramados, estamos ao lado de nossos alunos, apoiando-os
+              em sua jornada de crescimento e amadurecimento como atletas e como pessoas. Nosso compromisso vai além do
+              desenvolvimento técnico e tático. Buscamos criar um ambiente inclusivo e acolhedor, onde cada aluno se
+              sinta valorizado e encorajado a alcançar seu máximo potencial, tanto dentro quanto fora de campo. Ao longo
+              desses 10 anos, construímos uma sólida reputação de excelência no ensino do futebol, aliando métodos
+              modernos de treinamento à dedicação de uma equipe técnica apaixonada e experiente. Nosso compromisso com a
+              qualidade e a inovação nos permite oferecer uma experiência de aprendizado enriquecedora e gratificante,
+              que prepara nossos alunos para os desafios e oportunidades que os aguardam no mundo do esporte e além.
+              Nosso legado é definido não apenas pelos títulos conquistados em competições, mas pelas vidas que
+              impactamos e pelas memórias que criamos juntos. Estamos entusiasmados com o que o futuro reserva para
+              nossa escola de futebol e todos os talentos que estão por vir. Junte-se a nós nesta emocionante jornada e
+              faça parte da história da nossa escola de futebol!
+            </p>
+            <img src={iniciante} alt="imagem" />
+          </div>
+        </Container>
 
         <Container>
-          <Content>
-            <h1>Turma Chute Inicial - Escolha um dia da semana e um horário</h1>
-            <table>
-              <thead>
-                <tr>
-                  <th>Dia</th>
-                  <th>Horário - Manhã</th>
-                  <th>Horário - Tarde</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>Segunda-feira</td>
-                  <td>9h às 10h | 10h30 as 11h30</td>
-                  <td>13h às 14h | 14h às 15h</td>
-                </tr>
-                <tr>
-                  <td>Quarta-feira</td>
-                  <td>10h30 às 11h30 </td>
-                  <td>15h30 às 16h30</td>
-                </tr>
-                <tr>
-                  <td>Sábado</td>
-                  <td>9h30 às 10h30 (jogo livre)</td>
-                  <td>-</td>
-                </tr>
-              </tbody>
-            </table>
+          <Title>Treinamento Intermediário</Title>
+          <div>
+            <p>
+              Desde os primeiros passos até os momentos de glória nos gramados, estamos ao lado de nossos alunos,
+              apoiando-os em sua jornada de crescimento e amadurecimento como atletas e como pessoas. Nosso compromisso
+              vai além do desenvolvimento técnico e tático. Buscamos criar um ambiente inclusivo e acolhedor, onde cada
+              aluno se sinta valorizado e encorajado a alcançar seu máximo potencial, tanto dentro quanto fora de campo.
+              Ao longo desses 10 anos, construímos uma sólida reputação de excelência no ensino do futebol, aliando
+              métodos modernos de treinamento à dedicação de uma equipe técnica apaixonada e experiente. Nosso
+              compromisso com a qualidade e a inovação nos permite oferecer uma experiência de aprendizado enriquecedora
+              e gratificante, que prepara nossos alunos para os desafios e oportunidades que os aguardam no mundo do
+              esporte e além. Nosso legado é definido não apenas pelos títulos conquistados em competições, mas pelas
+              vidas que impactamos e pelas memórias que criamos juntos. Estamos entusiasmados com o que o futuro reserva
+              para nossa escola de futebol e todos os talentos que estão por vir. Junte-se a nós nesta emocionante
+              jornada e faça parte da história da nossa escola de futebol!
+            </p>
+            <img src={intermediario} alt="imagem" />
+          </div>
+        </Container>
 
-            <h1>Turma Apitão - Escolha um dia da semana e um horário</h1>
-            <table>
-              <thead>
-                <tr>
-                  <th>Dia</th>
-                  <th>Horário - Manhã</th>
-                  <th>Horário - Tarde</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>Terça-feira</td>
-                  <td>8h00 às 9h00 | 9h30 às 8h30 | 10h00 às 11h00</td>
-                  <td>13h00 às 14h00 | 15h00 às 16h00</td>
-                </tr>
-                <tr>
-                  <td>Quinta-feira</td>
-                  <td>7h30 às 8h30 | 10h30 às 11h30</td>
-                  <td>15h30 às 16h30 | 17h00 às 18h00</td>
-                </tr>
-                <tr>
-                  <td>Sexta-feira</td>
-                  <td>10h30 às 11h30</td>
-                  <td>13h30 às 14h30</td>
-                </tr>
-                <tr>
-                  <td>Sábado</td>
-                  <td>9h30 às 10h30 (jogo livre)</td>
-                  <td>13h00 às 14h00 (jogo livre)</td>
-                </tr>
-              </tbody>
-            </table>
-
-            <h1>Turma Passa a Bola - Escolha dois dias da semana e um horário</h1>
-            <table>
-              <thead>
-                <tr>
-                  <th>Dia</th>
-                  <th>Horário - Manhã</th>
-                  <th>Horário - Tarde</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>Segunda-feira</td>
-                  <td>7h00 às 8h40 | 9h00 às 10h40</td>
-                  <td>13h às 14h40 | 15h00 às 16h40</td>
-                </tr>
-                <tr>
-                  <td>Terça-feira</td>
-                  <td>7h30 às 9h10 | 9h30 às 11h10</td>
-                  <td>15h00 às 16h40 | 17h00 às 18h40</td>
-                </tr>
-                <tr>
-                  <td>Quarta-feira</td>
-                  <td>8h30 às 10h10 | 9h10 às 10h40</td>
-                  <td>14h00 às 15h40 | 16h00 às 17h40 </td>
-                </tr>
-                <tr>
-                  <td>Quinta-feira</td>
-                  <td>7h00 às 8h40 | 10h00 às 11h40 </td>
-                  <td>15h30 às 16h30 | 17h às 18h40</td>
-                </tr>
-                <tr>
-                  <td>Sexta-feira</td>
-                  <td>8h00 às 9h40 | 10h00 às 11h40</td>
-                  <td>15h00 às 16h40</td>
-                </tr>
-                <tr>
-                  <td>Sábado</td>
-                  <td>7h00 às 9h00 | 10h00 às 12h00 (jogo livre)</td>
-                  <td>13h00 às 15h00 | 16h00 às (jogo livre)</td>
-                </tr>
-              </tbody>
-            </table>
-            <ButtonTable>Matricule-se</ButtonTable>
-          </Content>
+        <Container>
+          <Title>Treinamento de Goleiro</Title>
+          <div>
+            <p>
+              Desde os primeiros passos até os momentos de glória nos gramados, estamos ao lado de nossos alunos,
+              apoiando-os em sua jornada de crescimento e amadurecimento como atletas e como pessoas. Nosso compromisso
+              vai além do desenvolvimento técnico e tático. Buscamos criar um ambiente inclusivo e acolhedor, onde cada
+              aluno se sinta valorizado e encorajado a alcançar seu máximo potencial, tanto dentro quanto fora de campo.
+              Ao longo desses 10 anos, construímos uma sólida reputação de excelência no ensino do futebol, aliando
+              métodos modernos de treinamento à dedicação de uma equipe técnica apaixonada e experiente. Nosso
+              compromisso com a qualidade e a inovação nos permite oferecer uma experiência de aprendizado enriquecedora
+              e gratificante, que prepara nossos alunos para os desafios e oportunidades que os aguardam no mundo do
+              esporte e além. Nosso legado é definido não apenas pelos títulos conquistados em competições, mas pelas
+              vidas que impactamos e pelas memórias que criamos juntos. Estamos entusiasmados com o que o futuro reserva
+              para nossa escola de futebol e todos os talentos que estão por vir. Junte-se a nós nesta emocionante
+              jornada e faça parte da história da nossa escola de futebol! Esses textos fornecem uma visão geral do
+              compromisso da escola de futebol com o desenvolvimento dos alunos em diferentes níveis e posições no
+              campo. Eles transmitem uma mensagem de apoio, excelência e oportunidade de crescimento dentro e fora do
+              campo.
+            </p>
+            <img src={goleiro} alt="imagem" />
+          </div>
         </Container>
       </GlobalContainer>
     </section>
