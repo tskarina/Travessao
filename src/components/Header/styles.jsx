@@ -32,17 +32,17 @@ const HeaderElements = styled.div`
   }
 
   a:hover {
-    color: ${(props) => props.theme.colors.color4}; /* Altera a cor ao passar o mouse */
+    color: ${(props) => props.theme.colors.color4};
   }
 
   a:active {
-    transform: translateY(2px); /* Altera a posição ao clicar */
+    transform: translateY(2px);
   }
 `;
 
 const Button = styled.button`
   background-color: ${(props) => props.theme.colors.color4};
-  border: 2px solid transparent; /* Definir uma borda transparente */
+  border: 2px solid transparent;
   border-radius: 8px;
   color: ${(props) => props.theme.colors.color3};
   width: 160px;
@@ -54,7 +54,7 @@ const Button = styled.button`
   transition: all 0.3s ease;
 
   &:hover {
-    color: #ffffff; /* Mudar a cor do texto para branco */
+    color: #ffffff;
     background-color: #070116; /* Mudar a cor de fundo para #070116 */
     border-color: #ff9500; /* Mudar a cor da borda para #ff9500 */
   }
