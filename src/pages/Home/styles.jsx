@@ -32,17 +32,17 @@ const HeaderElements = styled.div`
   }
 
   a:hover {
-    color: ${(props) => props.theme.colors.color4}; /* Altera a cor ao passar o mouse */
+    color: ${(props) => props.theme.colors.color4};
   }
 
   a:active {
-    transform: translateY(2px); /* Altera a posição ao clicar */
+    transform: translateY(2px);
   }
 `;
 
 const Button = styled.button`
   background-color: ${(props) => props.theme.colors.color4};
-  border: 2px solid transparent; /* Definir uma borda transparente */
+  border: 2px solid transparent;
   border-radius: 8px;
   color: ${(props) => props.theme.colors.color3};
   width: 160px;
@@ -54,7 +54,7 @@ const Button = styled.button`
   transition: all 0.3s ease;
 
   &:hover {
-    color: #ffffff; /* Mudar a cor do texto para branco */
+    color: #ffffff;
     background-color: #070116; /* Mudar a cor de fundo para #070116 */
     border-color: #ff9500; /* Mudar a cor da borda para #ff9500 */
   }
@@ -106,8 +106,8 @@ const Text = styled.p`
 `;
 
 const Image1 = styled.img`
-  width: 90vh; /* Defina o tamanho da imagem conforme necessário */
-  height: auto; /* Manter a proporção da imagem */
+  width: 90vh;
+  height: auto;
   position: absolute;
   right: 20vh;
   top: 22vh;
@@ -126,12 +126,12 @@ const Card = styled.div`
   height: 200px;
   padding: 20px;
   margin: 10px 10px 0px 0px;
-  border: 1px solid ${(props) => props.theme.colors.color7}; /* Usando a cor do theme para a borda */
+  border: 1px solid ${(props) => props.theme.colors.color7};
   border-radius: 5px;
   text-align: start;
-  position: relative; /* Para permitir que o ::before tenha posição absoluta relativa ao card */
-  overflow: hidden; /* Esconde o overflow causado pelo gradiente */
-  transition: transform 0.3s ease; /* Adicionando transição suave ao transform */
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s ease;
 
   p {
     color: ${(props) => props.theme.colors.color1};
@@ -161,8 +161,8 @@ const Card = styled.div`
 
   &:hover {
     transform: scale(1.05);
-    border: 1px solid ${(props) => props.theme.colors.color7}; /* Altera a cor da borda ao passar o mouse */
-    box-shadow: inset 0 0 5px rgba(77, 2, 138, 0.5); /* Aumenta o brilho ao passar o mouse */
+    border: 1px solid ${(props) => props.theme.colors.color7};
+    box-shadow: inset 0 0 5px rgba(77, 2, 138, 0.5);
   }
 `;
 
@@ -402,7 +402,7 @@ const Footer = styled.div`
 const FooterContainer = styled.div`
   display: flex;
   flex-wrap: nowrap;
-  justify-content: center; /* Alinha o conteúdo no centro horizontal */
+  justify-content: center;
   margin-top: 30px;
   margin-left: 30vh;
   margin-right: 23vh;
@@ -429,12 +429,12 @@ const FooterContent = styled.div`
   a {
     color: ${(props) => props.theme.colors.color1};
     text-decoration: none;
-    transition: color 0.3s ease; /* Adiciona transição para a cor */
-    cursor: pointer; /* Muda o cursor para indicar que é clicável */
+    transition: color 0.3s ease;
+    cursor: pointer;
   }
 
   a:hover {
-    color: ${(props) => props.theme.colors.color4}; /* Altera a cor ao passar o mouse */
+    color: ${(props) => props.theme.colors.color4};
   }
 `;
 
@@ -443,7 +443,7 @@ const SocialMedia = styled.div`
   margin-top: 10px;
 
   div {
-    margin: 0 2px; /* Ajuste a margem para reduzir o espaço entre as imagens */
+    margin: 0 2px;
   }
 
   img {
